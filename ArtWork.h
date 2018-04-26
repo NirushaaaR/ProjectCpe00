@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string heart[] = {"|    \3   \3    |","|   \3\3\3 \3\3\3   |","|    \3\3\3\3\3    |","|     \3\3\3     |","|      \3      |"}; 
+string heart[] = {"|    \3   \3    |","|   \3\3\3 \3\3\3   |","|    \3\3\3\3\3    |","|     \3\3\3     |","|      \3      |","|             |"}; 
 string diamond[] ={"|      \4\4     |","|     \4\4\4\4    |","|    \4\4\4\4\4\4   |","|    \4\4\4\4\4\4   |","|     \4\4\4\4    |","|      \4\4     |"};
 string spade[] = {"|      \6\6     |","|     \6\6\6\6    |","|    \6\6\6\6\6\6   |","|    \6\6\6\6\6\6   |","|      \6\6     |","|    \6\6\6\6\6\6   |"};
 string club[] = {"|      _      |","|     (_)     |","|   (_)_(_)   |","|     / \\     |","|    /___\\    |","|             |"};
@@ -54,13 +54,13 @@ string ArtWork::getArtWork(string suit,string face,int line){
 		return king[arr];
 	}
 	
-	if(suit == "D")
+	if(suit == "\4")
 		return	diamond[arr];
-	else if(suit == "H")
+	else if(suit == "\3")
 		return heart[arr];
-	else if(suit == "S")
+	else if(suit == "\6")
 		return spade[arr];
-	else if(suit == "C")
+	else if(suit == "\5")
 		return club[arr];
 	else{
 		return "error";	

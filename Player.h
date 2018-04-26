@@ -20,7 +20,8 @@ class Player{
 		
 };
 
-Player::Player(string tname ,string ttag = "opponent"){
+Player::Player(string tname ="" ,string ttag = "opponent"){
+
 	name = tname;
 	tag = ttag;
 }
@@ -79,7 +80,11 @@ void Player::checkAndDiscard(){
 }
 
 void Player::showCard(){
-	cout<<name<<":\n";
+	if(tag == "player")
+		cout<<name<<":(you)\n";
+	else
+		cout<<name<<":\n";
+		
 	if(hand.size()==0){
 		cout<<"no card on left\n";
 		return;
@@ -90,19 +95,6 @@ void Player::showCard(){
 		cout<< " -------------\t";
 	}cout<<"\n";
 		
-	/*for(int i =0;i<hand.size();i++){
-		if(tag == "player"){
-			cout<<"|"<<hand[i]<<"|\t";
-		}
-		else if(tag == "opponent"){
-		
-				cout<<"| * |"<<"\t";
-		}
-			
-	}cout<<"\n";
-	for(int i = 0;i<hand.size();i++){
-		cout<<" ---"<<"\t";
-	}cout<<"\n";*/
 	for(int line =0;line<8;line++){
 		
 		for(int i =0;i<hand.size();i++){
@@ -127,18 +119,7 @@ void Player::showCardPairs(int pos1,int pos2){
 	for(int i = 0;i<hand.size();i++){
 		cout<< " -------------\t";
 	}cout<<"\n";	
-	/*for(int i =0;i<hand.size();i++){
-		if(pos1 == i || pos2 == i){
-			continue;
-		}
-		if(tag == "player"){
-			cout<<"|"<<hand[i]<<"|\t";
-		}
-		else
-			cout<<"| * |"<<"\t";
-			
-	}*/
-	
+
 	for(int line =0;line<8;line++){
 		
 		for(int i =0;i<hand.size();i++){
@@ -164,19 +145,6 @@ void Player::showCardInPos(int pos){
 	for(int i = 0;i<hand.size();i++){
 		cout<< " -------------\t";
 	}cout<<"\n";	
-	/*for(int i =0;i<hand.size();i++){
-		if(tag == "player"){
-			cout<<"|"<<hand[i]<<"|\t";
-			
-		}
-		else if(tag == "opponent"){
-			if(i == pos)
-				cout<<"|"<<hand[i]<<"|\t";
-			else 
-				cout<<"| * |"<<"\t";
-		}
-			
-	}cout<<"\n";*/
 	
 	for(int line =0;line<8;line++){
 		

@@ -1,13 +1,12 @@
 #include "ArtWork.h"
 #include<vector>
-
 #include<algorithm>
-//#include<cstdlib>
+
 
 using namespace std;
 
-string allSuit[] = {"D","H","S","C"};
-//string allSuit[] = {"\3","\4","\5","\6"};
+
+string allSuit[] = {"\3","\4","\5","\6"};
 string allFace[] = {"A","2","3","4","5","6","7","8","9","10","J","K","Q"};
 
 
@@ -21,10 +20,8 @@ class Deck{
 	vector<Card> deck;
 	public:
 		Deck();
-		void showDeck();//show card in deck
 		void shuffleDeck();//shuffle a deck
 		int getSize();//return deck size
-		void eraseCard(int);//erase a card in deck
 		Card getCard(int);//return card with the same position with parameter
 };
 
@@ -69,13 +66,6 @@ bool operator==(Card &c1,Card &c2){
 	}
 }
 
-void Deck::showDeck(){
-	for(int i =0;i<deck.size();i++){
-		cout<<deck[i]<<" ";
-	}
-	cout<<"\n";
-	
-}
 
 int Deck::getSize(){
 	return deck.size();
@@ -83,11 +73,6 @@ int Deck::getSize(){
 
 Card Deck::getCard(int position){
 	return deck[position];
-}
-
-void Deck::eraseCard(int position){
-	
-	deck.erase(deck.begin()+position);
 }
 
 
