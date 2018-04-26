@@ -22,7 +22,7 @@ int main(int argc, char** argv){
 		
 		playerNumber =atoi(pn.c_str());
 		
-		GameSystem game(10);
+		GameSystem game(playerNumber);
 		game.gamePlay(myName);
 		
 		cout<<"Do you want to play again (0 to Exit) : ";
