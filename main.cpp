@@ -7,13 +7,14 @@ int main(int argc, char** argv){
 
 	srand(time(0));
 	
-	GameSystem game;
+	
 	bool playAgain=true;
+	
 	do{	
-		
+		GameSystem game(4);
 		game.gamePlay();
 		
-		cout<<"Do you want to play again:  ";
+		cout<<"Do you want to play again (0 = no,other = yes): ";
 		cin>>playAgain;
 		
 	}while(playAgain);

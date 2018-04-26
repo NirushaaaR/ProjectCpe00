@@ -2,7 +2,7 @@
 
 class Player{
 	vector<Card> hand;
-	
+
 	public:
 		string name;
 		string tag;
@@ -11,7 +11,7 @@ class Player{
 		void addCard(Card);//add a card to your hand
 		void checkAndDiscard();//change to game system
 		void showCard();//show a card in your hand 
-		void showCardWithPos(int);
+		void showCardInPos(int);
 		void showCardPairs(int,int);
 		void shuffleHand();//shuffle a card in your hand
 		bool checkPairs(int &,int &);//check if there a pair in your hand
@@ -20,7 +20,7 @@ class Player{
 		
 };
 
-Player::Player(string tname = "Stanley",string ttag = "opponent"){
+Player::Player(string tname ,string ttag = "opponent"){
 	name = tname;
 	tag = ttag;
 }
@@ -64,7 +64,7 @@ void Player::checkAndDiscard(){
 	int x,y;
 	
 	if(!checkPairs(x,y)){
-		showCardWithPos(hand.size() - 1);
+		showCardInPos(hand.size() - 1);
 		return;
 	}
 
@@ -85,10 +85,12 @@ void Player::showCard(){
 		return;
 	}
 
+
 	for(int i = 0;i<hand.size();i++){
-		cout<<" ---"<<"\t";
-	}cout<<"\n";	
-	for(int i =0;i<hand.size();i++){
+		cout<< " -------------\t";
+	}cout<<"\n";
+		
+	/*for(int i =0;i<hand.size();i++){
 		if(tag == "player"){
 			cout<<"|"<<hand[i]<<"|\t";
 		}
@@ -100,6 +102,21 @@ void Player::showCard(){
 	}cout<<"\n";
 	for(int i = 0;i<hand.size();i++){
 		cout<<" ---"<<"\t";
+	}cout<<"\n";*/
+	for(int line =0;line<8;line++){
+		
+		for(int i =0;i<hand.size();i++){
+			
+			if(tag == "player")
+				cout<<hand[i].art.getArtWork(hand[i].suit,hand[i].face,line)<<"\t";
+			else
+				cout<<hand[i].art.blankArt(line)<<"\t";
+		}
+		cout<<"\n";
+	}
+	
+	for(int i = 0;i<hand.size();i++){
+		cout<< " -------------\t";
 	}cout<<"\n";
 	
 	cout<<"\n";
@@ -108,9 +125,9 @@ void Player::showCard(){
 void Player::showCardPairs(int pos1,int pos2){
 	cout<<name<<":\n";
 	for(int i = 0;i<hand.size();i++){
-		cout<<" ---"<<"\t";
+		cout<< " -------------\t";
 	}cout<<"\n";	
-	for(int i =0;i<hand.size();i++){
+	/*for(int i =0;i<hand.size();i++){
 		if(pos1 == i || pos2 == i){
 			continue;
 		}
@@ -120,25 +137,34 @@ void Player::showCardPairs(int pos1,int pos2){
 		else
 			cout<<"| * |"<<"\t";
 			
-	}
-	cout<<"|"<<hand[pos1]<<"|\t";
-	cout<<"|"<<hand[pos2]<<"|\t";
+	}*/
 	
-	cout<<"\n";
+	for(int line =0;line<8;line++){
+		
+		for(int i =0;i<hand.size();i++){
+			
+			if(tag == "player" || i == pos1 || i == pos2)
+				cout<<hand[i].art.getArtWork(hand[i].suit,hand[i].face,line)<<"\t";
+			else
+				cout<<hand[i].art.blankArt(line)<<"\t";
+		}
+		cout<<"\n";
+	}
+	
 	for(int i = 0;i<hand.size();i++){
-		cout<<" ---"<<"\t";
+		cout<< " -------------\t";
 	}cout<<"\n";
 	
 	cout<<"\n";
 }
 
-void Player::showCardWithPos(int pos){
+void Player::showCardInPos(int pos){
 	cout<<name<<":\n";
 
 	for(int i = 0;i<hand.size();i++){
-		cout<<" ---"<<"\t";
+		cout<< " -------------\t";
 	}cout<<"\n";	
-	for(int i =0;i<hand.size();i++){
+	/*for(int i =0;i<hand.size();i++){
 		if(tag == "player"){
 			cout<<"|"<<hand[i]<<"|\t";
 			
@@ -150,9 +176,24 @@ void Player::showCardWithPos(int pos){
 				cout<<"| * |"<<"\t";
 		}
 			
-	}cout<<"\n";
+	}cout<<"\n";*/
+	
+	for(int line =0;line<8;line++){
+		
+		for(int i =0;i<hand.size();i++){
+			
+			if(tag == "player" || i == pos)
+				cout<<hand[i].art.getArtWork(hand[i].suit,hand[i].face,line)<<"\t";
+			else
+				
+				cout<<hand[i].art.blankArt(line)<<"\t";
+		}
+		cout<<"\n";
+	}
+	
+	
 	for(int i = 0;i<hand.size();i++){
-		cout<<" ---"<<"\t";
+		cout<< " -------------\t";
 	}cout<<"\n";
 	
 	cout<<"\n";

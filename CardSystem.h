@@ -1,24 +1,20 @@
-#include<iostream>
+#include "ArtWork.h"
 #include<vector>
-#include<string>
+
 #include<algorithm>
-#include<cstdlib>
+//#include<cstdlib>
 
 using namespace std;
 
 string allSuit[] = {"D","H","S","C"};
+//string allSuit[] = {"\3","\4","\5","\6"};
 string allFace[] = {"A","2","3","4","5","6","7","8","9","10","J","K","Q"};
-string heart[] = {"|    o   o    |","|   ooo ooo   |","|    ooooo    |","|     ooo     |","|      o      |"};//heart
-string diamond[] ={"|      xx     |","|     xxxx    |","|    xxxxxx   |","|    xxxxxx   |","|     xxxx    |","|      xx     |"};//diamond
-string spade[] = {"|      xx     |","|     xxxx    |","|    xxxxxx   |","|    xxxxxx   |","|      xx     |","|    xxxxxx   |"};//spade
-string club[] = {"|      _      |","|     (_)     |","|   (_)_(_)   |","|     / \\     |","|    /___\\    |","|             |"};//club
-string blank[]={"|             |","|             |","|             |","|             |","|             |","|             |"};
+
 
 struct Card{
 	string suit;
 	string face;
-	bool special;
-	string* artSuit;
+	ArtWork art;
 };
 
 class Deck{
@@ -43,28 +39,14 @@ Deck::Deck(){
 		
 	for(int i =0;i<allSuitSize;i++){
 		for(int j =0;j<allFaceSize;j++){
-			Card temp ={allSuit[i],allFace[j],false};
+			Card temp ={allSuit[i],allFace[j]};
 			deck.push_back(temp);
 		}
 	}
 	
-	Card joker = {"Joker","",true};
+	Card joker = {"Joker",""};
 	deck.push_back(joker);
 	
-	for(int i = 0;i<deck.size();i++){
-		if(deck[i].suit == "D")
-			deck[i].artSuit = diamond;
-		else if(deck[i].suit == "H")
-			deck[i].artSuit = heart;
-		else if(deck[i].suit == "S")
-			deck[i].artSuit = spade;
-		else if(deck[i].suit == "C")
-			deck[i].artSuit = club;
-		else{
-			deck[i].artSuit = blank;
-		}
-	}
-		
 	shuffleDeck();
 	
 
@@ -104,7 +86,6 @@ Card Deck::getCard(int position){
 }
 
 void Deck::eraseCard(int position){
-	
 	
 	deck.erase(deck.begin()+position);
 }
