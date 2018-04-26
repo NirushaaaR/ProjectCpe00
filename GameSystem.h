@@ -3,7 +3,8 @@
 
 
 string namebot[]={"Cherprang","Orn","Jennis","Noey","NamNeung","Kaew","Mobile","Music","Pun","Tommy","Mu","Karn",
-"Tony","Parker","Max","Stark","Harry","T'challa","Peter","Sam","Snow","John","Elvis","Black","Toey","Mod","Shark"};
+"Tony","Parker","Max","Stark","Harry","T'challa","Peter","Sam","Snow","John","Elvis","Black","Toey","Mod","Shark","Peter","Rocket","Groot",
+"Pang","Meow"};
 
 
 class GameSystem{
